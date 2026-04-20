@@ -127,3 +127,26 @@ void reverseQueue (struct queue** queue) {
     (*queue)->front = (*queue)->rear;
     (*queue)->rear = tempNode;
 }
+
+struct queue* mergeQueues (struct queue** queue1, struct queue** queue2) {
+    struct queue* mergedQueue = createQueue();
+
+    if (isEmpty(*queue1)) {
+        mergedQueue->front = (*queue2)->front;
+        mergedQueue->rear = (*queue2)->rear;
+    } else if (isEmpty(*queue2)) {
+        mergedQueue->front = (*queue1)->front;
+        mergedQueue->rear = (*queue1)->rear;
+    } else {
+        mergedQueue->front = (*queue1)->front;
+        mergedQueue->rear = (*queue2)->rear;
+
+        (*queue1)->rear->next = (*queue2)->front;
+    }
+    
+    free(*queue1);
+    free(*queue2);
+    *queue1 = *queue2 = NULL;
+    
+    return mergedQueue;
+}
