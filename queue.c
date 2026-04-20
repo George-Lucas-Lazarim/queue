@@ -2,10 +2,10 @@
 
 struct queue* createQueue() {
     struct queue* queue = (struct queue*) malloc (sizeof(struct queue));
-    if (queue == NULL) return NULL;
+    if (queue == NULL) return queue;
     queue->front = queue->rear = NULL;
 
-    return NULL;
+    return queue;
 }
 
 bool isEmpty (struct queue* queue) {
@@ -21,7 +21,23 @@ void enqueue (struct queue* queue, int data) {
         newNode->next = NULL;
         queue->front = queue->rear = newNode;
     } else {
-        newNode->next = queue->rear;
+        queue->rear->next = newNode;
         queue->rear = newNode;
+    }
+}
+
+int dequeue (struct queue* queue) {
+    if (queue->front == NULL) {
+        printf("Error! The Queue is Empty");
+        
+        return -1;
+    } else {
+        struct queueNode* tempNode = queue->front;
+        int data = tempNode->data;
+
+        queue->front = queue->front->next;
+        free(tempNode);
+
+        return data;
     }
 }
