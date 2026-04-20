@@ -13,11 +13,17 @@ int main() {
 
     for (int i=0; i < n; i++) enqueue(queue, rand() % 1000);
 
-    printf("\nPrinting the random list: ");
+    printf("\nPrinting the random list with %d elements: ", getSize(queue));
     printQueue(queue);
 
     printf("\nRemoving the front element from the list (the last element to enter the list): %d", dequeue(queue));
     printf("\nPeeking at the front element of the random list: %d", peek(queue));
+
+    printf("\nEnter a value to check if the random list contains it: ");
+    scanf("%d", &n);
+
+    if (contains(queue, n)) printf("The random list contains the value!");
+    else printf("The random list does not contain the value");
 
     printf("\nDeleting the random list... ");
     deleteQueue(&queue);
