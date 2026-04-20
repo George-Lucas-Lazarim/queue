@@ -24,5 +24,6 @@ void deleteQueue (struct queue** queue);
 void printQueue (struct queue* queue);
 int getSize(struct queue* queue);
 bool contains (struct queue* queue, int data);
+void reverseQueue (struct queue** queue);
 
 #endif

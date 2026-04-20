@@ -107,3 +107,23 @@ bool contains (struct queue* queue, int data) {
 
     return false;
 }
+
+void reverseQueue (struct queue** queue) {
+    if (*queue == NULL) return;
+
+    struct queueNode* prevNode = NULL;
+    struct queueNode* currentNode = (*queue)->front;
+    struct queueNode* nextNode;
+
+    struct queueNode* tempNode = (*queue)->front;
+
+    while (currentNode != NULL) {
+        nextNode = currentNode->next;
+        currentNode->next = prevNode;
+        prevNode = currentNode;
+        currentNode = nextNode;
+    }
+
+    (*queue)->front = (*queue)->rear;
+    (*queue)->rear = tempNode;
+}
