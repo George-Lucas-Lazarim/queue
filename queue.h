@@ -23,5 +23,6 @@ int peek (struct queue* queue);
 void deleteQueue (struct queue** queue);
 void printQueue (struct queue* queue);
 int getSize(struct queue* queue);
+bool contains (struct queue* queue, int data);
 
 #endif

@@ -85,7 +85,7 @@ void printQueue (struct queue* queue) {
     printf("[rear]");
 }
 
-int getSize(struct queue* queue) {
+int getSize (struct queue* queue) {
     int count = 0;
     struct queueNode* currentNode = queue->front;
 
@@ -95,4 +95,15 @@ int getSize(struct queue* queue) {
     }
 
     return count;
+}
+
+bool contains (struct queue* queue, int data) {
+    struct queueNode* currentNode = queue->front;
+
+    while (currentNode != NULL) {
+        if (currentNode->data == data) return true;
+        currentNode = currentNode->next;
+    }
+
+    return false;
 }
