@@ -70,3 +70,17 @@ void deleteQueue (struct queue** queue) {
     free(*queue);
     *queue = NULL;
 }
+
+void printQueue (struct queue* queue) {
+    struct queueNode* currentNode = queue->front;
+
+    printf("[front] ");
+
+    while (currentNode != NULL) {
+        printf("%d -> ", currentNode->data);
+        currentNode = currentNode->next;
+    }
+    printf("NULL ");
+    
+    printf("[rear]");
+}

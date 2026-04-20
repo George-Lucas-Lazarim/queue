@@ -21,5 +21,6 @@ void enqueue (struct queue* queue, int data);
 int dequeue (struct queue* queue);
 int peek (struct queue* queue);
 void deleteQueue (struct queue** queue);
+void printQueue (struct queue* queue);
 
 #endif
