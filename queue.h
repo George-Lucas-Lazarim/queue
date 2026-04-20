@@ -22,7 +22,7 @@ int dequeue (struct queue* queue);
 int peek (struct queue* queue);
 void deleteQueue (struct queue** queue);
 void printQueue (struct queue* queue);
-int getSize(struct queue* queue);
+int getSize (struct queue* queue);
 bool contains (struct queue* queue, int data);
 void reverseQueue (struct queue** queue);
 struct queue* mergeQueues (struct queue** queue1, struct queue** queue2);
