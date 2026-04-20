@@ -23,7 +23,7 @@ void enqueue (struct queue* queue, int data) {
     newNode->data = data;
     newNode->next = NULL;
 
-    if (queue->front == NULL) {
+    if (isEmpty(queue)) {
         queue->front = queue->rear = newNode;
     } else {
         queue->rear->next = newNode;
@@ -32,7 +32,7 @@ void enqueue (struct queue* queue, int data) {
 }
 
 int dequeue (struct queue* queue) {
-    if (queue->front == NULL) {
+    if (isEmpty(queue)) {
         printf("Error! The Queue is Empty");
         return -1;
     } else {
@@ -47,4 +47,13 @@ int dequeue (struct queue* queue) {
 
         return data;
     }
+}
+
+int peek (struct queue* queue) {
+    if (isEmpty(queue)) {
+        printf("Error! The Queue is Empty");
+        return -1;
+    }
+
+    return queue->front->data;
 }
