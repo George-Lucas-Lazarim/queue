@@ -57,3 +57,16 @@ int peek (struct queue* queue) {
 
     return queue->front->data;
 }
+
+void deleteQueue (struct queue** queue) {
+    struct queueNode* tempNode;
+
+    while (!isEmpty(*queue)) {
+        tempNode = (*queue)->front;
+        (*queue)->front = (*queue)->front->next;
+        free(tempNode);
+    }
+
+    free(*queue);
+    *queue = NULL;
+}
