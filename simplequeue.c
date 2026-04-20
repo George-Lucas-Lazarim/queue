@@ -12,7 +12,7 @@ int main() {
     scanf("%d", &n);
 
     for (int i=0; i < n; i++) enqueue(queue, rand() % 1000);
-    
-    if (!isEmpty(queue)) printf("\nRemoving the front element from the list (the first element to enter the list): %d", dequeue(queue));
+
+    if (!isEmpty(queue)) printf("\nRemoving the front element from the list (the first element to enter the list): %d\n", dequeue(queue));
 
 }
