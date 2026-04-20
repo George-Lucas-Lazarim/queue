@@ -22,5 +22,6 @@ int dequeue (struct queue* queue);
 int peek (struct queue* queue);
 void deleteQueue (struct queue** queue);
 void printQueue (struct queue* queue);
+int getSize(struct queue* queue);
 
 #endif

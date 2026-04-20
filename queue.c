@@ -84,3 +84,15 @@ void printQueue (struct queue* queue) {
     
     printf("[rear]");
 }
+
+int getSize(struct queue* queue) {
+    int count = 0;
+    struct queueNode* currentNode = queue->front;
+
+    while (currentNode != NULL) {
+        count++;
+        currentNode = currentNode->next;
+    }
+
+    return count;
+}
