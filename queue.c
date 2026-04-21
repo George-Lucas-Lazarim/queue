@@ -150,3 +150,35 @@ struct queue* mergeQueues (struct queue** queue1, struct queue** queue2) {
     
     return mergedQueue;
 }
+
+int removeMiddle (struct queue* queue) {
+    if (isEmpty(queue)) {
+        printf("Error! The Queue is Empty");
+        return -1;
+    } 
+
+    int size = getSize(queue);
+
+    if (size == 1) return dequeue(queue);
+
+    int midIndex = size / 2;
+
+    struct queueNode* prevNode = queue->front;
+    struct queueNode* middleNode = queue->front->next;
+
+    for (int i=1; i < midIndex; i++) {
+        prevNode = middleNode;
+        middleNode = middleNode->next;
+    }
+
+    prevNode->next = middleNode->next;
+
+    if (middleNode->next == NULL) {
+        queue->rear = prevNode;
+    }
+
+    int data = middleNode->data;
+    free(middleNode);
+
+    return data;
+}
